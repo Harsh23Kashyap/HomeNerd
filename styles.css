@@ -1454,3 +1454,13 @@ html {scroll-behavior:smooth} html,body,#root{margin:0;min-height:100%} body{bac
 /* Pointer hover is purely CSS; tap/click remains the fallback. */
 .project:not(.is-flipped):hover .flip-inner { transform:rotateY(180deg); }
 @media (hover:none) { .project:not(.is-flipped):hover .flip-inner { transform:none; } }
+
+/* Link mode: hover reveals the reverse; tap/click opens the verified project site. */
+.project:not(.is-flipped):hover .flip-inner { transform:rotateY(180deg); }
+@media (hover:none) { .project:not(.is-flipped):hover .flip-inner { transform:none; } }
+.project.link-pending { cursor:default; }
+.project.link-pending .flip-inner { transform:none!important; }
+.project.link-pending .flip-back { display:none!important; }
+.project .flip-close { display:none!important; }
+
+.flip-open-hint { display:block; margin:12px 0 0!important; padding-top:7px; border-top:1px solid #abbeb0; color:#385b49!important; font:11px Arial,sans-serif!important; }

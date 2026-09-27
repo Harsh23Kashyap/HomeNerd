@@ -16,21 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   buttons.forEach((button, i) => button.addEventListener('click', () => update(groups[i])));
-  // On touch and keyboard, each card can be flipped without a hover gesture.
+  // Both faces are one navigation target. Hover flips without consuming a tap.
   cards.forEach(card => {
-    const close = card.querySelector('.flip-close');
-    function setFlip(value) {
-      card.classList.toggle('is-flipped', value);
-      card.setAttribute('aria-label', card.querySelector('.flip-back-top .eyebrow').textContent.split(' /')[0] + (value ? ': more information shown' : ': flip card to read more'));
+    const url = card.dataset.projectUrl;
+    if (!url) {
+      card.classList.add('link-pending');
+      card.removeAttribute('tabindex');
+      return;
     }
+    const close = card.querySelector('.flip-close');
+    close.remove(); // A card click now means open, not return-to-front.
+    card.querySelector('.flip-back-body').insertAdjacentHTML('beforeend','<p class="flip-open-hint">Open project ↗</p>');
     card.addEventListener('click', event => {
-      if (event.target.closest('button, a')) return;
-      setFlip(!card.classList.contains('is-flipped'));
+      event.preventDefault();
+      window.open(url, '_blank', 'noopener,noreferrer');
     });
-    close.addEventListener('click', () => { setFlip(false); card.focus({preventScroll:true}); });
     card.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && card.classList.contains('is-flipped')) { event.preventDefault(); setFlip(false); card.focus({preventScroll:true}); }
-      else if (event.target === card && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); setFlip(!card.classList.contains('is-flipped')); }
+      if (event.target === card && (event.key === 'Enter' || event.key === ' ')) {
+        event.preventDefault(); window.open(url, '_blank', 'noopener,noreferrer');
+      }
     });
   });
   document.querySelectorAll('a[href="#top"]').forEach(a => a.addEventListener('click', event => {event.preventDefault();window.scrollTo({top:0,behavior:'smooth'});}));
