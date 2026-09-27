@@ -1,23 +1,37 @@
-Nerd family homepage - local review copy
+# Nerd family homepage
 
-Open index.html in Chrome. Keep index.html, people.html, styles.css and script.js together in the same folder. It works from file:// and needs no server or image downloads. Illustrations are inline SVGs. Use People in the top navigation for the separate credits page.
+The site has ten project cards, a separate People page, and a shared asterisk favicon (`favicon.svg`). Deploy `index.html`, `people.html`, `styles.css`, `script.js`, `favicon.svg`, and the `assets/` directory together at the site root. The pages also work from `file://` for a local check.
 
-This is the eight-project review design, not a deployment of nerdmama.org. Six live project cards now open a verified external site in a new tab. PatentNerd and AnomalyNerd remain non-clickable; PatentNerd URL unverified, AnomalyNerd under construction. People credits now include only verified project connections; several possible contributors are omitted where attribution is unverified. Source details and remaining limitations are below.
+## Cards and navigation
 
-This updated copy adds gentle, looping motion to all eight project illustrations. On a desktop pointer, hovering also lifts a card and scales its artwork; on touch screens, the looping artwork remains visible. The system's reduced-motion preference disables those effects.
+On each page load, DietChat, CustomNerd, WirelessNerd, HallucinationNerd, and NewsNerd shuffle among the first five positions. The other five cards shuffle among the lower five positions. The visual order is the DOM and keyboard-focus order; position numbers update on each load. Category filters still follow the project's identity rather than its current position. With local storage available, a reload that coincidentally repeats the entire previous order swaps two cards in each zone.
 
-Card update: on desktop, hover a card to read the short explanation and sample question. Clicking either face of a linked card opens its site in a new tab. On touch screens, tapping a linked card opens its site directly rather than showing the back. Keyboard users can focus a linked card and press Enter or Space to open its site. PatentNerd and AnomalyNerd remain unlinked. Reduced-motion preference turns off the flip transition.
+The linked cards open their destinations in a new tab on click, Enter, or Space. On desktop, pointer hover shows the reverse with a description and image where provided. On touch, a linked card opens its destination directly. PatentNerd has no verified website link. AnomalyNerd and OperationsNerd are under construction and have no outbound destination. Their cards toggle a non-navigating preview on click, Enter, or Space. The reduced-motion preference removes the animated transitions. Artwork uses inline SVGs; pointer tilt and staggered entrance animate where motion is enabled.
 
-The reverse-side descriptions and example questions are review copy, not claims that every named service currently supports those exact prompts. Please verify project descriptions and People credits before public release.
+Destinations checked September 27, 2026:
+- DietChat: https://dietchat.org/
+- DietNerd: https://dietnerd.org/
+- NewsNerd: http://newsnerd-prod.s3-website-us-east-1.amazonaws.com/ (temporary S3 address; the custom domain was not working when checked)
+- HallucinationNerd: https://hallucinationnerd.org/
+- InvestorNerd: https://www.investornerd.org/
+- WirelessNerd: https://wirelessnerd.org/
+- CustomNerd: https://github.com/Harsh23Kashyap/Custom-Nerd (public source repository, not a deployed site)
 
-People attribution checked September 27, 2026:
-- DietNerd: Dennis Shasha, Shela Wu, Zubair Yacub: https://dietnerd.org/about.html
-- HallucinationNerd: Taranum Wasu, Harsh Kashyap, Vishnu Chennur, Dennis Shasha: https://hallucinationnerd.org/about.html
-- InvestorNerd: John Castillo, Rishika Gautam, Xinyu Wang, Harsh Kashyap, Dennis Shasha: https://arxiv.org/abs/2609.24658
-- WirelessNerd: Dennis Shasha: https://wireless.engineering.nyu.edu/wireless-nerd/ ; Shela Wu: https://www.linkedin.com/posts/shelawu_wirelesstechnology-llm-b6gs-activity-7262120711031328768-wcac
-- NewsNerd: Harsh Kashyap's own public post: https://www.linkedin.com/posts/harsh-kashyap_a-lot-of-the-time-the-news-we-consume-is-activity-7436136521776275457-r65a ; also his public resume https://harshkashyapportfolio.netlify.app/assets/documents/Harsh_Kashyap_Resume.pdf
-- DietChat: no contributor credits shown pending direct confirmation. PatentNerd: no contributor credits shown pending direct confirmation. Vedant Pradhan omitted: available sources did not bind that name to NewsNerd. The text on card backs is still review copy, not independently verified service functionality.
+PatentNerd, AnomalyNerd, and OperationsNerd have no outbound link. ChronicNerd is represented by DietChat and WorldNewsNerd by NewsNerd, so neither appears twice.
 
-Website destinations checked September 27, 2026: DietChat https://dietchat.org/; DietNerd https://dietnerd.org/; NewsNerd temporary S3 URL http://newsnerd-prod.s3-website-us-east-1.amazonaws.com/ (custom domain currently broken); HallucinationNerd https://hallucinationnerd.org/; InvestorNerd https://www.investornerd.org/; WirelessNerd https://wirelessnerd.org/. PatentNerd URL unverified and not wired. Front and back faces of the six linked cards open a new tab. Hover shows the explanatory back on devices with a pointer; on touch the card opens the site directly, so the explanatory back is not available there.
+## Card images
 
-AnomalyNerd is the eighth card, explicitly under construction with no outbound link. ChronicNerd remains omitted because DietChat is its current name. PatentNerd is still non-clickable: patentnerd.org and www.patentnerd.org did not resolve on September 27, 2026.
+Five backs contain cropped captures of the associated public sites, taken September 27, 2026. DietChat uses its public About page. NewsNerd displays an image placeholder rather than its public site's configuration-warning screen. CustomNerd contains a crop of the homepage image documented in its GitHub README; that image contains diet-themed example copy and is not a deployed CustomNerd site. AnomalyNerd shows a violet local UI mock, while OperationsNerd shows a prototype approval-queue image from https://github.com/AmaanIlahi/OperationsNerd/pull/9. The latter contains demo data and simulated sending. Neither preview implies that the underlying app is deployed. These captures can age and should be recaptured when the sites change.
+
+Card descriptions and sample questions are short explanations, not verified claims that the underlying services support every specific sample prompt.
+
+## People credits and sources
+
+Credits were checked September 27, 2026:
+- DietNerd: Dennis Shasha, Shela Wu, Zubair Yacub - https://dietnerd.org/about.html
+- HallucinationNerd: Taranum Wasu, Harsh Kashyap, Vishnu Chennur, Dennis Shasha - https://hallucinationnerd.org/about.html
+- InvestorNerd: John Castillo, Rishika Gautam, Xinyu Wang, Harsh Kashyap, Dennis Shasha - https://arxiv.org/abs/2609.24658
+- WirelessNerd: Dennis Shasha - https://wireless.engineering.nyu.edu/wireless-nerd/ ; Shela Wu - https://www.linkedin.com/posts/shelawu_wirelesstechnology-llm-b6gs-activity-7262120711031328768-wcac
+- NewsNerd: Harsh Kashyap - https://www.linkedin.com/posts/harsh-kashyap_a-lot-of-the-time-the-news-we-consume-is-activity-7436136521776275457-r65a ; https://harshkashyapportfolio.netlify.app/assets/documents/Harsh_Kashyap_Resume.pdf
+
+No contributor credits are shown for DietChat or PatentNerd pending a direct source. Vedant Pradhan is omitted because the available sources did not connect that name to NewsNerd.
