@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttons = [...document.querySelectorAll('.filters button')];
   const cards = [...document.querySelectorAll('.project-grid .project')];
   const groups = ['All projects', 'Food & health', 'News & ideas', 'Tools & evidence'];
-  const kinds = ['Food & health', 'Food & health', 'News & ideas', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence'];
+  const kinds = ['Food & health', 'Food & health', 'News & ideas', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence'];
   function update(group) {
     buttons.forEach((button, i) => {
       const active = groups[i] === group;

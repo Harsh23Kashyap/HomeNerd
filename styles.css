@@ -1464,3 +1464,44 @@ html {scroll-behavior:smooth} html,body,#root{margin:0;min-height:100%} body{bac
 .project .flip-close { display:none!important; }
 
 .flip-open-hint { display:block; margin:12px 0 0!important; padding-top:7px; border-top:1px solid #abbeb0; color:#385b49!important; font:11px Arial,sans-serif!important; }
+
+/* Eight-card layout: the pending AnomalyNerd tile completes the last row. */
+@media (min-width:761px) {
+ .project-grid:has(.featured) > .project:nth-child(7) { grid-column:auto; display:block; min-height:0; }
+ .project-grid:has(.featured) > .project:nth-child(7) .flip-front { display:block; min-height:0; }
+ .project-grid:has(.featured) > .project:nth-child(7) .art-frame { height:162px; min-height:0; }
+ .project-grid:has(.featured) > .project:nth-child(7) .project-copy { display:block; padding:20px 20px 22px; }
+ .project-grid:has(.featured) > .project:nth-child(7) h3 { font-size:29px; margin:15px 0 8px; }
+ .project-grid:has(.featured) > .project:nth-child(7) p { min-height:42px; }
+ .project-grid:has(.featured) > .project:nth-child(7) .domain { margin-top:22px; }
+ .project-grid:has(.featured) > .project:last-child { grid-column:auto; min-height:0; }
+ .project-grid:has(.featured) > .project:last-child .flip-front { display:block; min-height:0; }
+ .project-grid:has(.featured) > .project:last-child .art-frame { height:162px; min-height:0; }
+ .project-grid:has(.featured) > .project:last-child .project-copy { display:block; padding:20px 20px 22px; }
+ .project-grid:has(.featured) > .project:last-child h3 { font-size:29px; margin:15px 0 8px; }
+ .project-grid:has(.featured) > .project:last-child p { min-height:42px; }
+ .project-grid:has(.featured) > .project:last-child .domain { margin-top:22px; }
+}
+.art-anomaly { background:#e4e0e9; }
+.anomaly-ping { transform-box:fill-box; transform-origin:center; animation:anomaly-pulse 4.5s ease-in-out infinite; }
+@keyframes anomaly-pulse { 0%,100% { opacity:.3; transform:scale(.8); } 50% { opacity:.75; transform:scale(1.18); } }
+@media (prefers-reduced-motion:reduce) { .anomaly-ping { animation:none!important; transform:none!important; } }
+/* The last-child layout from seven cards must not leak into eight cards. */
+@media (min-width:761px) {
+ .project-grid:has(.featured) > .project:last-child { grid-column:auto; display:block; min-height:0; }
+ .project-grid:has(.featured) > .project:last-child .flip-front { display:block; min-height:0; }
+ .project-grid:has(.featured) > .project:last-child .art-frame { height:162px; min-height:0; }
+ .project-grid:has(.featured) > .project:last-child .project-copy { display:block; padding:20px 20px 22px; }
+ .project-grid:has(.featured) > .project:last-child h3 { font-size:29px; margin:15px 0 8px; }
+ .project-grid:has(.featured) > .project:last-child p { min-height:42px; }
+ .project-grid:has(.featured) > .project:last-child .domain { margin-top:22px; }
+}
+@media (min-width:761px) {
+ .project-grid:has(.featured) > .project:last-child { grid-column:auto!important; display:block!important; min-height:0!important; }
+ .project-grid:has(.featured) > .project:last-child .flip-front { display:block!important; min-height:0!important; }
+ .project-grid:has(.featured) > .project:last-child .art-frame { height:162px!important; min-height:0!important; }
+ .project-grid:has(.featured) > .project:last-child .project-copy { display:block!important; padding:20px 20px 22px!important; }
+ .project-grid:has(.featured) > .project:last-child h3 { font-size:29px!important; margin:15px 0 8px!important; }
+ .project-grid:has(.featured) > .project:last-child p { min-height:42px!important; }
+ .project-grid:has(.featured) > .project:last-child .domain { margin-top:22px!important; }
+}
