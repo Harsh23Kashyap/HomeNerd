@@ -2,6 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const buttons = [...document.querySelectorAll('.filters button')];
   const grid = document.querySelector('.project-grid');
+  // Pages without a project grid (e.g. people.html) skip the card logic below.
+  if (grid) {
   const originalCards = [...grid.querySelectorAll('.project')];
   const priorityNames = new Set(['DietChat', 'CustomNerd', 'WirelessNerd', 'HallucinationNerd', 'NewsNerd']);
   const groups = ['All projects', 'Food & health', 'News & ideas', 'Tools & evidence'];
@@ -68,8 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     const close = card.querySelector('.flip-close');
-    close.remove(); // A card click now means open, not return-to-front.
-    card.querySelector('.flip-back-body').insertAdjacentHTML('beforeend','<p class="flip-open-hint">Open project ↗</p>');
+    if (close) close.remove(); // A card click now means open, not return-to-front.
+    const backBody = card.querySelector('.flip-back-body');
+    if (backBody) backBody.insertAdjacentHTML('beforeend','<p class="flip-open-hint">Open project ↗</p>');
     card.addEventListener('click', event => {
       event.preventDefault();
       window.open(url, '_blank', 'noopener,noreferrer');
@@ -95,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.removeProperty('--tilt-y');
       });
     });
+  }
   }
   document.querySelectorAll('a[href="#top"]').forEach(a => a.addEventListener('click', event => {event.preventDefault();window.scrollTo({top:0,behavior:'smooth'});}));
 });
