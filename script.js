@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const priorityNames = new Set(['DietChat', 'CustomNerd', 'WirelessNerd', 'HallucinationNerd', 'NewsNerd']);
   const groups = ['All projects', 'Food & health', 'News & ideas', 'Tools & evidence'];
   const kindsByName = new Map(originalCards.map((card, i) => [card.querySelector('h3').textContent.trim(),
-    ['Food & health', 'Food & health', 'News & ideas', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence'][i]]));
+    ['Food & health', 'Food & health', 'News & ideas', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence', 'Tools & evidence'][i]]));
   const name = card => card.querySelector('h3').textContent.trim();
   const shuffle = items => {
     const out = items.slice();
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (_) { /* File previews or privacy settings may deny storage. */ }
   cards.forEach((card, i) => {
     grid.append(card); // The keyboard order follows the visual order.
-    const number = String(i + 1).padStart(2, '0') + ' / 10';
+    const number = String(i + 1).padStart(2, '0') + ' / 11';
     card.querySelectorAll('.index, .flip-index').forEach(label => { label.textContent = number; });
   });
   function update(group) {
